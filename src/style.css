@@ -1,0 +1,318 @@
+/* Windows 95 Design System & Custom Reset */
+
+:root {
+  --win95-face: #c0c0c0;
+  --win95-highlight: #ffffff;
+  --win95-shadow: #808080;
+  --win95-dark-shadow: #0a0a0a;
+  
+  --win95-blue-active: #000080;
+  --win95-blue-active-grad: #1084d0;
+  --win95-blue-inactive: #808080;
+  --win95-blue-inactive-grad: #c0c0c0;
+  
+  --win95-desktop: #008080; /* Teal background */
+  --win95-text: #000000;
+  --win95-text-disabled: #808080;
+  --win95-window-bg: #c0c0c0;
+  
+  --font-family: 'PMingLiU', '新細明體', 'Microsoft JhengHei', '微軟正黑體', 'Tahoma', 'MS Sans Serif', sans-serif;
+  --font-size-ui: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  user-select: none;
+}
+
+body {
+  background-color: var(--win95-desktop);
+  color: var(--win95-text);
+  font-family: var(--font-family);
+  font-size: var(--font-size-ui);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 3D Border Styles */
+.win95-outset {
+  border: 1px solid;
+  border-color: var(--win95-highlight) var(--win95-shadow) var(--win95-shadow) var(--win95-highlight);
+  box-shadow: inset 1px 1px 0px var(--win95-highlight), 1px 1px 0px var(--win95-dark-shadow);
+  background-color: var(--win95-face);
+}
+
+.win95-inset {
+  border: 1px solid;
+  border-color: var(--win95-shadow) var(--win95-highlight) var(--win95-highlight) var(--win95-shadow);
+  box-shadow: inset 1px 1px 0px var(--win95-dark-shadow), 1px 1px 0px var(--win95-face);
+}
+
+/* Classic Button styles */
+button.win95-btn {
+  font-family: var(--font-family);
+  font-size: var(--font-size-ui);
+  padding: 4px 10px;
+  background-color: var(--win95-face);
+  border: 1px solid;
+  border-color: var(--win95-highlight) var(--win95-shadow) var(--win95-shadow) var(--win95-highlight);
+  box-shadow: inset 1px 1px 0px var(--win95-highlight), 1px 1px 0px var(--win95-dark-shadow);
+  outline: none;
+  cursor: default;
+}
+
+button.win95-btn:active:not(:disabled) {
+  border-color: var(--win95-shadow) var(--win95-highlight) var(--win95-highlight) var(--win95-shadow);
+  box-shadow: inset 1px 1px 0px var(--win95-dark-shadow);
+  padding: 5px 9px 3px 11px; /* text shifts down and right */
+}
+
+button.win95-btn:disabled {
+  color: var(--win95-text-disabled);
+  text-shadow: 1px 1px 0px var(--win95-highlight);
+}
+
+/* Toolbar Buttons */
+.toolbar-btn {
+  width: 25px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--win95-face);
+  border: 1px solid;
+  border-color: var(--win95-highlight) var(--win95-shadow) var(--win95-shadow) var(--win95-highlight);
+  box-shadow: inset 1px 1px 0px var(--win95-highlight);
+  cursor: default;
+}
+
+.toolbar-btn:active {
+  border-color: var(--win95-shadow) var(--win95-highlight) var(--win95-highlight) var(--win95-shadow);
+  box-shadow: inset 1px 1px 0px var(--win95-dark-shadow);
+}
+
+.toolbar-btn.active {
+  background-color: #e0e0e0;
+  background-image: radial-gradient(circle, #e0e0e0 25%, transparent 26%),
+                    radial-gradient(circle, #e0e0e0 25%, transparent 26%);
+  background-size: 4px 4px;
+  background-position: 0 0, 2px 2px;
+  border-color: var(--win95-shadow) var(--win95-highlight) var(--win95-highlight) var(--win95-shadow);
+  box-shadow: inset 1px 1px 0px var(--win95-dark-shadow);
+}
+
+/* Standard Window */
+.win95-window {
+  width: 422px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--win95-face);
+  padding: 3px;
+}
+
+/* Window Titlebar */
+.title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, var(--win95-blue-active), var(--win95-blue-active-grad));
+  color: white;
+  padding: 3px 5px 3px 4px;
+  font-weight: bold;
+  height: 20px;
+}
+
+.title-bar.inactive {
+  background: linear-gradient(90deg, var(--win95-blue-inactive), var(--win95-blue-inactive-grad));
+  color: #c0c0c0;
+}
+
+.title-bar-text {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.title-bar-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.title-bar-controls {
+  display: flex;
+  gap: 2px;
+}
+
+.win95-window-btn {
+  width: 16px;
+  height: 14px;
+  font-size: 9px;
+  font-weight: bold;
+  line-height: 9px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--win95-face);
+  border: 1px solid;
+  border-color: var(--win95-highlight) var(--win95-shadow) var(--win95-shadow) var(--win95-highlight);
+  box-shadow: inset 1px 1px 0px var(--win95-highlight);
+  color: black;
+  cursor: default;
+}
+
+.win95-window-btn:active {
+  border-color: var(--win95-shadow) var(--win95-highlight) var(--win95-highlight) var(--win95-shadow);
+  box-shadow: inset 1px 1px 0px var(--win95-dark-shadow);
+}
+
+.win95-window-btn-close {
+  margin-left: 2px;
+}
+
+/* Icons */
+.win95-close-icon {
+  width: 8px;
+  height: 7px;
+  position: relative;
+}
+
+/* Retro Menu Bar */
+.menu-bar {
+  display: flex;
+  padding: 2px 6px;
+  font-size: var(--font-size-ui);
+  gap: 8px;
+  background-color: #c0c0c0 !important;
+  border-bottom: 1px solid var(--win95-shadow);
+  position: relative;
+  z-index: 50; /* Ensure dropdowns overlay the canvas and toolbar */
+}
+
+.menu-item {
+  padding: 2px 6px;
+  cursor: default;
+  position: relative;
+}
+
+.menu-item:hover, .menu-item.active {
+  background-color: var(--win95-blue-active);
+  color: white;
+}
+
+.menu-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #c0c0c0 !important;
+  color: black !important;
+  border: 1px solid;
+  border-color: var(--win95-highlight) var(--win95-shadow) var(--win95-shadow) var(--win95-highlight);
+  box-shadow: 1px 1px 0px var(--win95-dark-shadow);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+}
+
+.menu-dropdown-item {
+  padding: 4px 20px 4px 10px;
+  color: black !important;
+  background-color: #c0c0c0 !important;
+  display: flex;
+  justify-content: space-between;
+  white-space: nowrap;
+}
+
+.menu-dropdown-item:hover {
+  background-color: var(--win95-blue-active) !important;
+  color: white !important;
+}
+
+.menu-dropdown-divider {
+  height: 1px;
+  border-bottom: 1px solid var(--win95-highlight);
+  margin: 3px 1px;
+  background-color: var(--win95-shadow);
+}
+
+/* Underlined access key helper */
+.shortcut-underline {
+  text-decoration: underline;
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  align-items: center;
+  padding: 4px 6px;
+  gap: 6px;
+  background-color: var(--win95-face);
+  border-bottom: 2px solid var(--win95-highlight);
+  box-shadow: 0px 1px 0px var(--win95-shadow);
+}
+
+.toolbar-separator {
+  width: 2px;
+  height: 18px;
+  background-color: var(--win95-shadow);
+  border-right: 1px solid var(--win95-highlight);
+  margin: 0 4px;
+}
+
+.toolbar-group {
+  display: flex;
+  gap: 1px;
+  padding: 1px;
+  background-color: var(--win95-face);
+  border: 1px solid;
+  border-color: var(--win95-shadow) var(--win95-highlight) var(--win95-highlight) var(--win95-shadow);
+}
+
+/* Status Bar */
+.status-bar {
+  display: flex;
+  margin-top: 3px;
+  gap: 2px;
+  height: 20px;
+  font-size: 11px;
+}
+
+.status-panel {
+  padding: 2px 6px;
+  background-color: var(--win95-face);
+  border: 1px solid;
+  border-color: var(--win95-shadow) var(--win95-highlight) var(--win95-highlight) var(--win95-shadow);
+  box-shadow: inset 1px 1px 0px var(--win95-dark-shadow);
+  display: flex;
+  align-items: center;
+}
+
+.status-panel.grow {
+  flex-grow: 1;
+}
+
+.status-panel.score-panel {
+  width: 80px;
+}
+
+.status-panel.progress-panel {
+  width: 60px;
+}
