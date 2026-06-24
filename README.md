@@ -6,6 +6,12 @@
 
 ---
 
+## 🔗 線上遊玩
+
+👉 **點此立即開始遊戲：[https://qqboxy.github.io/cblocks/](https://qqboxy.github.io/cblocks/)**
+
+---
+
 ## 🎮 遊戲玩法與規則
 
 1. **基本規則**：
